@@ -28,7 +28,4 @@ func main() {
 
 	runServer := fmt.Sprintf("%s:%s", cfg.Server.Host, cfg.Server.Port) 
 	log.Fatal(app.Listen(runServer))
-
-
-
 }
