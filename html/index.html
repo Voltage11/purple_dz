@@ -1,0 +1,15 @@
+{{ template "base" .}}
+
+{{ define "content"}}
+    <ul style="display: flex;">
+        {{ range .Categories }}
+            <li style="list-style-type: none;
+                        margin-right: 10px;
+                        border: 1px solid gray;
+                        padding: 15px;
+                        border-radius: 5px;
+                        background: gray;
+                        color: white;">#{{.Title}}</li>
+        {{ end }}
+    </ul>
+{{ end }}
