@@ -34,7 +34,7 @@ func GetConfig() *Config {
 		Server: &ServerConfig{
 			Host: getStringFromEnv("SERVER_HOST", "localhost"),
 			Port: getStringFromEnv("SERVER_PORT", "3000"),
-			Debug: getBoolFromEnv("DB_DEBUG", true),
+			Debug: getBoolFromEnv("SERVER_DEBUG", true),
 		},
 		DB: &DbConfig{
 			Host: getStringFromEnv("DB_HOST", "localhost"),
@@ -86,4 +86,16 @@ func getBoolFromEnv(key string, defaultValue bool) bool {
 		return defaultValue
 	}
 	return envValueBool
+}
+
+type LogConfig struct{
+	Level  int
+	Format string
+}
+
+func NewLogConfig() *LogConfig {
+	return &LogConfig{
+		Level:  getIntFromEnv("LOG_LEVEL", 0),
+		Format: getStringFromEnv("LOG_FORMAT", "json"),
+	}
 }

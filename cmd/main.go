@@ -5,9 +5,11 @@ import (
 	"log"
 	"purple1/config"
 	"purple1/internal/pages"
+	"purple1/pkg/logger"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	slogfiber "github.com/samber/slog-fiber"
 )
 
 func main() {
@@ -16,6 +18,9 @@ func main() {
 	log.Println("Конфигурация загружена")
 
 	app := fiber.New()
+	logConfig := config.NewLogConfig()
+	customLogger := logger.NewLogger(logConfig)
+	app.Use(slogfiber.New(customLogger))
 	app.Use(recover.New())
 	pages.NewPageHandler(app)
 
@@ -28,7 +33,4 @@ func main() {
 
 	runServer := fmt.Sprintf("%s:%s", cfg.Server.Host, cfg.Server.Port) 
 	log.Fatal(app.Listen(runServer))
-
-
-
 }
