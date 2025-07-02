@@ -1,0 +1,22 @@
+package components
+
+
+type PropsMenuLink struct{
+    Title string
+    Href string
+}
+
+templ MenuLink(props PropsMenuLink) {
+    @MenuLinkStyle()
+    <a class="menu-item" href={ props.Href }>{ props.Title }</a>
+}
+
+templ MenuLinkStyle() {
+    <style>
+        .menu-item{
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+    </style>
+}

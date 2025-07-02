@@ -1,0 +1,25 @@
+package views
+
+import "purple1/views/layout"
+
+
+templ Main () {
+    @layout.Layout(layout.LayoutProps{
+        Title: "Третье ДЗ",
+        MetaDescription: "Описание для 3 ДЗ",        
+    }) {
+        @layout.Header()
+
+        //Отобразим карусель категорий
+        
+        @layout.CategoryList(nil)
+
+        <main>
+            
+        </main>
+
+        <footer>
+             @layout.Footer()
+        </footer>
+    }
+}

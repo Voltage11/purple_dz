@@ -1,0 +1,53 @@
+package layout
+
+import "purple1/views/components"
+
+
+templ CategoryList(caterories []components.CategoryItemProps){
+    
+    @CategoryListStyle()
+    <div class="category-conteiner">
+        @components.CategoryItem(components.CategoryItemProps{
+            Title: "Животные",
+            Href: "#",
+            ImagePath: "/public/images/categories/animals.jpeg",
+        })
+        @components.CategoryItem(components.CategoryItemProps{
+            Title: "Цветы",
+            Href: "#",
+            ImagePath: "/public/images/categories/flowers.jpg",
+        })
+        @components.CategoryItem(components.CategoryItemProps{
+            Title: "Музыка",
+            Href: "#",
+            ImagePath: "/public/images/categories/music.webp",
+        })
+        @components.CategoryItem(components.CategoryItemProps{
+            Title: "Технология",
+            Href: "#",
+            ImagePath: "/public/images/categories/tehnology.jpg",
+        })
+        @components.CategoryItem(components.CategoryItemProps{
+            Title: "Деревья",
+            Href: "#",
+            ImagePath: "/public/images/categories/tries.jpg",
+        })
+
+
+        // for _, value := range caterories {
+        //     @components.CategoryItem(value)
+        // }
+    </div>
+}
+
+templ CategoryListStyle(){
+    <style>
+        .category-conteiner{
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 51px;
+        }
+    
+    </style>
+}

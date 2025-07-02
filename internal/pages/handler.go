@@ -1,6 +1,9 @@
 package pages
 
 import (
+	"purple1/pkg/tadapter"
+	"purple1/views"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -13,43 +16,10 @@ type Category struct {
 func NewPageHandler(router *fiber.App) {
 	
 	router.Get("/", func (c *fiber.Ctx) error {
-		categories := []Category {
-			{
-				Title: "Животные",
-				ImageUrl: "",
-				Url: "#",
-			},
-			{
-				Title: "Бабочки",
-				ImageUrl: "",
-				Url: "#",
-			},
-			{
-				Title: "Крокодилы",
-				ImageUrl: "",
-				Url: "#",
-			},
-			{
-				Title: "Сверчки",
-				ImageUrl: "",
-				Url: "#",
-			},
-			{
-				Title: "Черепахи",
-				ImageUrl: "",
-				Url: "#",
-			},
-			{
-				Title: "Природа",
-				ImageUrl: "",
-				Url: "#",
-			},
-		}
+		
 
-		data := struct {
-			Categories []Category
-		}{Categories: categories,}
-
-		return c.Render("index", data)
+		component := views.Main()
+	
+	return tadapter.Render(c, component)
 	})
 }

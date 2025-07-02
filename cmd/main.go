@@ -6,11 +6,9 @@ import (
 	"purple1/config"
 	"purple1/internal/pages"
 	"purple1/pkg/logger"
-	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/gofiber/template/html/v2"
 	slogfiber "github.com/samber/slog-fiber"
 )
 
@@ -19,16 +17,8 @@ func main() {
 	cfg := config.GetConfig() 
 	log.Println("Конфигурация загружена")
 
-	engine := html.New("./html", ".html")
-	engine.AddFuncMap(map[string]interface{}{
-		"ToUpper": func (c string) string {
-			return strings.ToUpper(c)
-		},
-	})
-
-	app := fiber.New(fiber.Config{
-			Views: engine,
-		})
+	app := fiber.New()
+	app.Static("/public", "./public")
 		
 	logConfig := config.NewLogConfig()
 	customLogger := logger.NewLogger(logConfig)
