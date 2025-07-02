@@ -18,6 +18,8 @@ func main() {
 	log.Println("Конфигурация загружена")
 
 	app := fiber.New()
+	app.Static("/public", "./public")
+		
 	logConfig := config.NewLogConfig()
 	customLogger := logger.NewLogger(logConfig)
 	app.Use(slogfiber.New(customLogger))

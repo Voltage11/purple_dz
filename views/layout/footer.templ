@@ -1,0 +1,38 @@
+package layout
+
+import "purple1/views/components"
+
+
+templ Footer() {
+    @FooterStyle()
+    <div class="footer">
+        @components.MenuFooterElement(components.MenuFooterElementProps{
+            Title: "Правила обработки персональных данных",
+            Href: "#",
+        })
+        @components.MenuFooterElement(components.MenuFooterElementProps{
+            Title: "Все права защищены",
+            Href: "#",
+        })
+        //{ children... }
+    </div>
+    
+}
+
+templ FooterStyle(){
+    <style>
+        .footer {
+           display: flex;
+           justify-content: center;
+           gap: 50px; 
+           background: #ffffff;
+           align-items: center;
+           height: 80px;
+        }
+        .footer a{
+            text-decoration: none;
+            color: black;
+        }
+    
+    </style>
+}

@@ -1,0 +1,67 @@
+package layout 
+
+import "purple1/views/components"
+
+templ Menu() {
+    @MenuStyle()
+    
+    <div class="menu">
+        <div class="menu__left">
+            <div>
+                @components.NewsLink()
+            </div>
+            <div>
+                @components.MenuLink(components.PropsMenuLink{
+                    Title: "Категории",
+                    Href: "#",
+                })
+            </div>
+            <div>
+                @components.MenuLink(components.PropsMenuLink{
+                    Title: "Контакты",
+                    Href: "#",
+                })
+            </div>
+        </div>
+        <div class="menu__right">
+            @components.InputText(components.PropsInputText{
+                Placeholder: "Найти Новость",
+                ImageButtonPath: "/public/images/search-ico.png",
+            })
+            @components.MenuLink(components.PropsMenuLink{
+                    Title: "Вход",
+                    Href: "#",
+                })
+            @components.MenuLink(components.PropsMenuLink{
+                    Title: "Регистрация",
+                    Href: "#",
+                })
+
+        </div>
+    </div>
+ 
+}
+
+templ MenuStyle() {
+    <style>
+        .menu{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px 0;
+            max-width: 1290px;
+            align-items: center;
+            width: 100%;
+        }
+        .menu__left {
+            align-items: left;
+            display: flex;
+            gap: 20px;
+        }
+        .menu__right{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+    </style>
+}
