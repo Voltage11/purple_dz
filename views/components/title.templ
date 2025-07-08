@@ -1,0 +1,15 @@
+package components
+
+templ Title(text string){
+    @TitleStyle()
+    <h2 class="title">{text}</h2>
+}
+
+templ TitleStyle(){
+    <style>
+        .title{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+}

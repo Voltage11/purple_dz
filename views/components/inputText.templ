@@ -1,16 +1,24 @@
 package components
 
 
+
 type PropsInputText struct{
     Placeholder string
     ImageButtonPath string // Если передали путь к изображению, то справа разместим кнопку с изображением
+    Name string
+    LabelTitle string
 }
 
 // Компонент текстовое поле ввода, можем передать подсказку при вводе и отображение кнопки справа
 templ InputText(props PropsInputText) {
     @InputTextStyle()
+    
     <div class="input-text-container">
-        <input type="text" class="input-text" placeholder={ props.Placeholder }/>
+        if (props.LabelTitle != "") {
+            <label for={props.Name}>{props.LabelTitle}</label><br>
+        }
+        
+        <input type="text" class="input-text" placeholder={ props.Placeholder } name={ props.Name }/>
         if (props.ImageButtonPath != "") {
             <i class="search-icon-place">
                 <img class="search-icon" src={ props.ImageButtonPath } />
@@ -22,9 +30,9 @@ templ InputText(props PropsInputText) {
 templ InputTextStyle() {
     <style>
         .input-text {
-            background: #e2e0e0;
+            background: #ffffff;
             border-radius: 5px;
-            border: 1px solid #b5adad;
+            border: none;
             width: 250px;
         }
         .input-text-container {

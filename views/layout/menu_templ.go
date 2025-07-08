@@ -85,7 +85,7 @@ func Menu() templ.Component {
 		}
 		templ_7745c5c3_Err = components.MenuLink(components.PropsMenuLink{
 			Title: "Регистрация",
-			Href:  "#",
+			Href:  "/register",
 		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
