@@ -5,6 +5,7 @@ import (
 	"log"
 	"purple1/config"
 	"purple1/internal/pages"
+	"purple1/internal/register"
 	"purple1/pkg/logger"
 
 	"github.com/gofiber/fiber/v2"
@@ -25,6 +26,7 @@ func main() {
 	app.Use(slogfiber.New(customLogger))
 	app.Use(recover.New())
 	pages.NewPageHandler(app)
+	register.NewHadnler(app)
 
 	if cfg.Server.Debug {
 		// Просто проверка загрузки bool значения из .env, не несет логики в данном примере

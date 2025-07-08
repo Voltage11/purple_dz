@@ -1,0 +1,85 @@
+package pages
+
+import "purple1/views/layout"
+import "purple1/views/components"
+
+
+templ Register () {
+    @layout.Layout(layout.LayoutProps{
+        Title: "Регистрация",
+        MetaDescription: "Регистрация пользователя",        
+    }) {
+        @RegisterStyle()
+        <div class="container">
+            <div class="container-form">
+                <div class="container-form__title">
+                    @components.Title("Регистрация на сайте")
+                </div>
+
+                <div id="register-result"></div>
+
+                <form hx-post="/api/register" 
+                    hx-trigger="submit"
+                    hx-target="#register-result"
+                    hx-swap="innerHTML swap:1s"
+                >
+                    <div class="input-text-area">
+                        @components.InputText(components.PropsInputText{
+                            Placeholder: "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
+                            ImageButtonPath: "Введите имя",
+                            Name: "name",
+                            LabelTitle: "Имя",
+                        })
+
+                        @components.InputText(components.PropsInputText{
+                            Placeholder: "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
+                            ImageButtonPath: "Введите email",
+                            Name: "email",
+                            LabelTitle: "Email",
+                        })
+
+                        @components.InputText(components.PropsInputText{
+                            Placeholder: "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
+                            ImageButtonPath: "Введите пароль",
+                            Name: "password",
+                            LabelTitle: "Пароль",
+                        })
+                    </div>
+                    @components.SubmitButton(){
+                        <div>Зарегистрироваться</div>
+                    }
+                </form>
+            </div>
+        </div>
+    }
+}
+
+templ RegisterStyle(){
+    <style>
+        .container {
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            height: 100vh;    
+            background: gray;      
+        }
+        .container-form {
+            width: 400px;
+            height: 400px;
+            background-color: #f0f0f0; 
+        }
+        .container-form__title{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .input-text-area{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        
+    </style>
+}
