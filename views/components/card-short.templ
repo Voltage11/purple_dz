@@ -1,0 +1,56 @@
+package components 
+
+type CardShortProps struct{
+    ImagePath string
+    Title string
+    ContentShort string
+    ContentShortMaxLength int
+}
+
+templ CardShort(props CardShortProps) {
+    @CardShortStyle()
+    if props.ContentShortMaxLength > 0 {
+        // Позже создать обрезание текста карточки до кол. символов
+    }
+    <div class="card">
+        <div class="card__block">
+            <div class="card__block-title">
+                {props.Title}
+            </div>
+            <div class="card__block-content">
+                {props.ContentShort}
+            </div>
+        </div>
+    </div>
+}
+
+templ CardShortStyle() {
+    <style>
+        .card{
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            background: rgb(26, 41, 53);
+            display: flex;
+            align-items: flex-end;
+        }
+        .card__block{
+            width: 100%;
+            height: 80px;
+            margin: 15px;
+            background: rgba(238, 235, 235, 0.7);
+            padding: 15px;
+            border:none;
+            border-radius: 15px;
+        }
+        .card__block-title{
+            font-weight: 600;
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+        .card__block-content{
+
+        }
+    </style>
+}

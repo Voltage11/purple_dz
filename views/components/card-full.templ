@@ -1,0 +1,99 @@
+package components 
+
+
+type CardFullProps struct{
+    ImagePath string
+    Title string
+    ContentShort string
+    ContentShortMaxLength int
+    AuthorImagePath string
+    AuthorName string
+    AuthorDatePost string
+}
+
+templ CardFull(props CardFullProps) {
+    @CardFullStyle()
+    if props.ContentShortMaxLength > 0 {
+        // Позже создать обрезание текста карточки до кол. символов
+    }
+    <div class="card-full">
+        <div class="card-full__image"></div>
+        <div class="card-full__title">{props.Title}</div>
+        <div class="card-full__content">{props.ContentShort}</div>
+        <div class="card-full__author">
+            <div class="card-full__autor-image" >
+
+            </div>
+            <div class="card-full__autor-info" >
+                <div class="card-full__autor-info__name">{props.AuthorName}</div>
+                <div class="card-full__autor-info__date-post">{props.AuthorDatePost}</div>
+            </div>
+            <div class="card-full__autor-logo" >
+
+            </div>
+        </div>
+    </div>
+}
+
+templ CardFullStyle() {
+    <style>
+        .card-full{
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            background: white;
+        }
+        .card-full__image {
+            width: 100%;
+            height: 100px;
+            background-color: purple;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .card-full__title{
+            font-size: 16px;
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+        .card-full__content{
+            font-size: 12px;
+            font-style: normal;
+            margin-bottom: 15px;
+            color: rgb(107, 103, 103);
+        }
+        .card-full__author{
+            height: 45px;
+            background: rgb(196, 194, 194);
+            border-radius: 10px;
+            display: flex;
+            padding: 10px;
+        }
+        .card-full__autor-image{
+            width: 45px;
+            height: 45px;
+            background: black;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .card-full__autor-info{
+            width: 150px;
+            height: 45px;
+        }
+        .card-full__autor-info__name{
+            
+        }
+        .card-full__autor-info__date-post{
+            
+        }
+        .card-full__autor-logo{
+            width: 35px;
+            height: 35px;
+            background: black;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+    </style>
+}
