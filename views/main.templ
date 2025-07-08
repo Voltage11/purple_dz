@@ -1,6 +1,7 @@
 package views
 
 import "purple1/views/layout"
+import "purple1/views/components"
 
 
 templ Main () {
@@ -9,10 +10,23 @@ templ Main () {
         MetaDescription: "Описание для 3 ДЗ",        
     }) {
         @layout.Header()
-
-        //Отобразим карусель категорий
-        
         @layout.CategoryList(nil)
+
+        @components.CardShort(components.CardShortProps{
+            ImagePath: "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
+            Title: "Заголовок карточки",
+            ContentShort: "Краткий текст краткий текст краткий тескт",
+            ContentShortMaxLength: 100,
+        })
+        <br>
+        @components.CardFull(components.CardFullProps{
+            ImagePath: "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
+            Title: "Заголовок карточки",
+            ContentShort: "Краткий текст краткий текст краткий тескт",
+            ContentShortMaxLength: 100,
+            AuthorName: "Фамилия И.О.",
+            AuthorDatePost: "05.07.2025",
+        })
 
         <main>
             
