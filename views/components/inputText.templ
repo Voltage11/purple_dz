@@ -1,7 +1,6 @@
 package components
 
 
-
 type PropsInputText struct{
     Placeholder string
     ImageButtonPath string // Если передали путь к изображению, то справа разместим кнопку с изображением
@@ -18,7 +17,8 @@ templ InputText(props PropsInputText) {
             <label for={props.Name}>{props.LabelTitle}</label><br>
         }
         
-        <input type="text" class="input-text" placeholder={ props.Placeholder } name={ props.Name }/>
+        <input type="text" 
+            class="input-text" placeholder={ props.Placeholder } name={ props.Name }/>
         if (props.ImageButtonPath != "") {
             <i class="search-icon-place">
                 <img class="search-icon" src={ props.ImageButtonPath } />

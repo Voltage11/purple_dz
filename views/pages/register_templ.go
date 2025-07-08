@@ -61,8 +61,8 @@ func Register() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			templ_7745c5c3_Err = components.InputText(components.PropsInputText{
-				Placeholder:     "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
-				ImageButtonPath: "Введите имя",
+				Placeholder:     "Введите имя",
+				ImageButtonPath: "",
 				Name:            "name",
 				LabelTitle:      "Имя",
 			}).Render(ctx, templ_7745c5c3_Buffer)
@@ -70,8 +70,8 @@ func Register() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			templ_7745c5c3_Err = components.InputText(components.PropsInputText{
-				Placeholder:     "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
-				ImageButtonPath: "Введите email",
+				Placeholder:     "Введите email",
+				ImageButtonPath: "",
 				Name:            "email",
 				LabelTitle:      "Email",
 			}).Render(ctx, templ_7745c5c3_Buffer)
@@ -79,8 +79,8 @@ func Register() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			templ_7745c5c3_Err = components.InputText(components.PropsInputText{
-				Placeholder:     "", // Передаем пустой путь к изображению, пока тестово закрасим цветом
-				ImageButtonPath: "Введите пароль",
+				Placeholder:     "Введите пароль",
+				ImageButtonPath: "",
 				Name:            "password",
 				LabelTitle:      "Пароль",
 			}).Render(ctx, templ_7745c5c3_Buffer)
